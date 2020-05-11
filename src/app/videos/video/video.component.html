@@ -1,0 +1,20 @@
+<h1 class="display-4">CRUD Video game</h1>
+<form #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formVideo.id">
+    <div class="form-group">
+        <input type="text" name="title" #title="ngModel" [(ngModel)]="service.formVideo.title" class="form-control" placeholder="Titre du vidéo" required>
+    </div>
+    <div *ngIf="title.invalid && title.touched" class="validation-error" style="color: red;">Ce champ est requis</div>
+    <div class="form-group">
+        <textarea type="text" name="description" #description="ngModel" [(ngModel)]="service.formVideo.description" class="form-control" rows="6" placeholder="Décrivez-nous votre vidéo" required></textarea>
+    </div>
+    <div *ngIf="description.invalid && description.touched" class="validation-error" style="color: red;">Ce champ est requis</div>
+        <img src="/video/12.jpg" width="350px" heught="750px">
+    
+    <div class="form-group">
+        <input type="file" (change)="load($event)" name="file" #image="ngModel" [(ngModel)]="service.formVideo.image" class="form-control">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Soumettre</button>
+    </div>
+</form>

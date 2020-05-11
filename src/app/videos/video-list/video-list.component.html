@@ -1,0 +1,21 @@
+<div class="text-align">
+    <input type="text" placeholder="filtrer par title" name="filtre">
+</div>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Image</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let val of videos | async">
+            <td>{{val.title}}</td>
+            <td>{{val.description}}</td>
+            <td>{{val.image}}</td>
+            <td><a class="btn btn-primary" (click)="modifier(val.key)">Modifier</a></td>
+            <td><a class="btn btn-danger" (click)="supprimer(val.key)">Supprimer</a></td>
+        </tr>
+    </tbody>
+</table>
